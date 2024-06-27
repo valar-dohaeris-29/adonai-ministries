@@ -17,6 +17,7 @@
     "vuetify": "^3.6.10"
   },
   "devDependencies": {
+    "@mdi/font": "^7.4.47",
     "typescript": "^5.2.2",
     "vue-tsc": "^2.0.21"
   }
