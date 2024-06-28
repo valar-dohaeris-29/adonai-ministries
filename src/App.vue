@@ -3,11 +3,11 @@
 <template>
   <v-card>
     <v-layout>
-      <v-navigation-drawer expand-on-hover rail>
+      <v-navigation-drawer expand-on-hover rail :width="300">
         <v-list>
           <v-list-item
             prepend-avatar="https://static.vecteezy.com/system/resources/thumbnails/000/379/447/small/2720.jpg"
-            subtitle=""
+            subtitle="admin@adonaiministries.co.za"
             title="Adonai Ministries"
           ></v-list-item>
         </v-list>
@@ -40,11 +40,15 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-main style="height: 250px">
+      <v-main>
         <RouterView />
       </v-main>
     </v-layout>
   </v-card>
 </template>
 
-<style scoped></style>
+<style scoped>
+.v-list-item--nav ::v-deep(.v-list-item-title) {
+  font-size: 1rem;
+}
+</style>

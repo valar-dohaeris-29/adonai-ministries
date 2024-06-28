@@ -2,7 +2,7 @@
 
 This GitHub repository hosts the codebase for Adonai Ministries' website, designed to provide church members easy access to sermons delivered by Pastor Ellan. The site features:
 
-- **About Us**: Mission and leadership.
+<!-- - **About Us**: Mission and leadership. -->
 - **Sermons Archive**: A collection of sermons with audio recordings and transcripts.
 - **Event Calendar**: Upcoming services and gatherings.
 - **Live Streaming**: Link to remote participation in services.
