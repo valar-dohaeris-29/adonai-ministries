@@ -40,6 +40,6 @@
   /* Adjust background properties as needed */
   background-size: cover;
   background-position: center;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 </style>
