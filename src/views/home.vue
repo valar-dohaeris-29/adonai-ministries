@@ -11,7 +11,7 @@
 
 <style scoped>
 .header {
-  position: fixed;
+  /* position: fixed; */
   top: 7%;
   left: 10%;
   padding: 20px;
@@ -29,7 +29,7 @@
   padding: 10px;
 }
 
-.full-screen-bg {
+/* .full-screen-bg {
   z-index: -1;
   position: fixed;
   top: 0;
@@ -37,9 +37,9 @@
   width: 100%;
   height: 100%;
   background-image: url(".././assets/images/WelcomeHome.jpg");
-  /* Adjust background properties as needed */
+  /* Adjust background properties as needed 
   background-size: cover;
   background-position: center;
-  /* opacity: 0.5; */
-}
+  /* opacity: 0.5; 
+} */
 </style>
