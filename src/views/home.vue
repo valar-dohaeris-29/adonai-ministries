@@ -23,13 +23,13 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 10;
+  /* z-index: 10; */
   color: rgba(255, 255, 255, 0.9);
   background-color: #110505;
   padding: 10px;
 }
 
-.full-screen-bg {
+/* .full-screen-bg {
   z-index: -1;
   position: fixed;
   top: 0;
@@ -37,9 +37,9 @@
   width: 100%;
   height: 100%;
   background-image: url(".././assets/images/WelcomeHome.jpg");
-  /* Adjust background properties as needed */
+
   background-size: cover;
   background-position: center;
-  /* opacity: 0.5; */
-}
+  opacity: 0.5;
+} */
 </style>
