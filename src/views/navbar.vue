@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
 </script>
 
 <template>
-  <v-navigation-drawer expand-on-hover rail :width="400" class="hide-on-small">
+  <v-navigation-drawer expand-on-hover rail :width="300" class="hide-on-small">
     <v-list>
       <v-list-item
         prepend-avatar="https://static.vecteezy.com/system/resources/thumbnails/000/379/447/small/2720.jpg"
@@ -51,14 +51,15 @@ const navItems: NavItem[] = [
     </v-list>
   </v-navigation-drawer>
 
-  <div class="nav-menu">
-    <!-- <div class="nav-menu hide-on-large"> -->
-    <button class="menu-button" id="menu-activator">
-      <b>MENU.</b>
-      <div></div>
-    </button>
-    <v-menu activator="#menu-activator">
-      <v-list>
+  <div class="nav-menu hide-on-large">
+    <v-menu>
+      <template v-slot:activator="{ props }">
+        <button v-bind="props" class="menu-button">
+          <b>MENU.</b>
+          <div></div>
+        </button>
+      </template>
+      <v-list density="compact" class="dropdown-list">
         <v-list-item
           v-for="(i, idx) in navItems"
           :value="idx"
@@ -74,11 +75,6 @@ const navItems: NavItem[] = [
 </template>
 
 <style scoped style="scss">
-/* .nav-menu ::v-deep(.v-list) {
-  background-color: #050315;
-  color: #d1d1d1;
-} */
-
 @media (max-width: 1279px) {
   .hide-on-small {
     display: none;
@@ -91,6 +87,11 @@ const navItems: NavItem[] = [
   }
 }
 
+.v-menu .dropdown-list.v-list {
+  background-color: #050315;
+  color: #d1d1d1;
+}
+
 .nav-menu {
   .menu-button {
     width: 150px;
@@ -99,19 +100,21 @@ const navItems: NavItem[] = [
     background: #050315;
     color: #fbfbfe;
     position: absolute;
+    right: 30px;
+    top: 20px;
     align-items: center;
-    border: solid 1px #fbfbfe;
+    /* border: solid 1px #fbfbfe; */
     letter-spacing: 0.3em;
     padding-left: 25px;
     font-size: 12pt;
   }
 
-  .menu-button:hover > div {
+  .menu-button:active > div {
     margin-left: 76px;
     transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .menu-button:hover > b {
+  .menu-button:active > b {
     animation: letterroll cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
   }
 
