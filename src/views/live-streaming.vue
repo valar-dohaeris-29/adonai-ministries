@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onUnmounted, onMounted } from "vue";
 
 const zoomLink = "https://zoom.us/example"; // Replace with your Zoom link
 const zoomLinkAvailable = ref(false); // TODO Replace with your logic to determine link availability
 
-const countdown = computed(() => {
+const countdown = ref("");
+
+const updateCountdown = () => {
   const now = new Date();
   const nextSunday = new Date(now);
   nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7)); // Find next Sunday
@@ -18,7 +20,18 @@ const countdown = computed(() => {
   const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-  return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  countdown.value = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+};
+
+let interval: NodeJS.Timeout;
+
+onMounted(() => {
+  updateCountdown();
+  interval = setInterval(updateCountdown, 1000);
+});
+
+onUnmounted(() => {
+  clearInterval(interval);
 });
 </script>
 

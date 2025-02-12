@@ -3,7 +3,7 @@
 <template>
   <div class="full-screen-bg"></div>
 
-  <!-- <h1>Event Calendar!</h1> -->
+  <h1>Event Calendar!</h1>
 </template>
 
 <style scoped>
@@ -18,6 +18,6 @@
   /* Adjust background properties as needed */
   background-size: cover;
   background-position: center;
-  /* opacity: 0.5; */
+  opacity: 0.5;
 }
 </style>
