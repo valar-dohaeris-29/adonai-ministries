@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, onUnmounted, onMounted } from "vue";
+import { ref, onUnmounted, onMounted } from "vue";
 
 const zoomLink = "https://zoom.us/example"; // Replace with your Zoom link
-const zoomLinkAvailable = ref(false); // TODO Replace with your logic to determine link availability
+const zoomLinkAvailable = ref(true); // TODO Replace with your logic to determine link availability
 
 const countdown = ref("");
 
@@ -41,20 +41,18 @@ onUnmounted(() => {
   <div class="sermon-page">
     <div v-if="zoomLinkAvailable" class="zoom-container">
       <h1>Welcome to Our Sermon!</h1>
-      <p>Join us this Sunday at 9am via Zoom:</p>
-      <a :href="zoomLink" target="_blank" class="zoom-link">
-        <img
-          src="https://img.icons8.com/ios-filled/50/000000/zoom.png"
-          alt="Zoom Icon"
-        />
-        Join Zoom Meeting
+      <!-- <img
+        src="https://img.icons8.com/ios-filled/50/000000/zoom.png"
+        alt="Zoom Icon"
+        /> -->
+      <a :href="zoomLink" target="_blank" class="watch-button">
+        <span>WATCH</span>
       </a>
     </div>
     <div v-else class="countdown-container">
       <h1>Our Next Sermon</h1>
       <p>Join us next Sunday at 9am!</p>
       <div class="countdown">
-        <p>Countdown to Next Sunday 9am:</p>
         <p>{{ countdown }}</p>
       </div>
     </div>
@@ -76,27 +74,65 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.zoom-link {
+.watch-button {
+  position: relative;
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  margin-top: 20px;
-  font-size: 18px;
-  color: #ffffff;
-  background-color: #007bff;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  width: 150px; /* Adjust Circle size */
+  height: 150px;
+  border: 2px solid #050315; /* Circle border */
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.zoom-link img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
+.watch-button span {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  color: #050315;
+  text-transform: uppercase;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
-.zoom-link:hover {
-  background-color: #0056b3;
+.watch-button:hover span {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.watch-button::before {
+  content: "WATCH";
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  color: #050315;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.watch-button:hover::before {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.watch-button::after {
+  content: "WATCH";
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  color: #050315;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.watch-button:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .countdown {
